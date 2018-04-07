@@ -105,10 +105,10 @@ client.on('message', message => {
 
 
 client.on("message", message => {
-    var prefix = "&clear";
+    var prefix = "&";
  
             var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "&clear")) {
+            if (message.content.startsWith(prefix + "clear")) {
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **لا يوجد لديك صلاحية لمسح الشات**');
         var msg;
         msg = parseInt();
