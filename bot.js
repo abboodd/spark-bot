@@ -12,7 +12,7 @@ client.on('message', message => {
 });
 
 client.on('ready',  () => {
-  console.log('By : حسوني العراقي ');
+  console.log('By : spark ');
   console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
   console.log(`Logged in as * [ " ${client.user.username} " ] Users! [ " ${client.users.size} " ]`);
   console.log(`Logged in as * [ " ${client.user.username} " ] channels! [ " ${client.channels.size} " ]`);
@@ -27,9 +27,9 @@ client.on("message", message => {
    message.react("😜")
   const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
-      .addField("『Diamond Bot』 『اسم البوت』", true)
+      .addField(" 『Rv Bot』 『اسم البوت』", true)
       
-      .addField("『@حـ♥̨̥̬̩سوني آإلعرآإقـ♥̨̥̬̩ي#7725』『مصمم البوت』", true)
+      .addField("『@مصمم البوت』SPARK| |👑#9837』", true)
       
       .addField("『^help^』😘『اذا تبي جميع الاوامر مع اوامر اضافية』😵", true)
       
@@ -322,7 +322,8 @@ client.on("message", message => {
 
 ^^support| القسم الثاني  الدعم الفني و المساعدة
 
-القسم الثالث مصمم البوت | @حـ♥̨̥̬̩سوني آإلعرآإقـ♥̨̥̬̩ي#7725 
+! HP SPARK| |👑#9837| القسم التالث  الدعم الفني و المساعدة
+
 
 ● ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ● 
 
@@ -381,7 +382,7 @@ client.on("message", message => {
 
 ^^support| القسم الثاني  الدعم الفني و المساعدة
 
-القسم الثالث مصمم البوت | @حـ♥̨̥̬̩سوني آإلعرآإقـ♥̨̥̬̩ي#7725 
+! HP SPARK| |👑#9837| القسم الثاني  الدعم الفني و المساعدة
 
 
 
@@ -440,7 +441,7 @@ client.on("message", message => {
 
 ^^support| القسم الثاني  الدعم الفني و المساعدة
 
-القسم الثالث مصمم البوت | @حـ♥̨̥̬̩سوني آإلعرآإقـ♥̨̥̬̩ي#7725 
+! HP SPARK| |👑#9837| القسم الثاني  الدعم الفني و المساعدة
 
 
 `)
@@ -812,7 +813,7 @@ client.on("message", message => {
 client.on('message', message => {
   if (true) {
 if (message.content === '^^support') {
-      message.author.send(' |https://discord.gg/T4Q7vXP| لـ أي استفسار').catch(e => console.log(e.stack));
+      message.author.send(' |https://discord.gg/EAAKsfB| لـ أي استفسار').catch(e => console.log(e.stack));
 
     }
    } 
@@ -837,7 +838,7 @@ client.on('message', message => {
 client.on('message', message => {
   if (true) {
 if (message.content === '^^invite') {
-      message.author.send(' رابط البوت |  https://discordapp.com/oauth2/authorize?client_id=378398305153187840&scope=bot&permissions=2146958591 ').catch(e => console.log(e.stack));
+      message.author.send(' رابط البوت |  https://discordapp.com/oauth2/authorize/?permissions=817897534&scope=bot&client_id=431836563379322880 ').catch(e => console.log(e.stack));
 
     }
    } 
