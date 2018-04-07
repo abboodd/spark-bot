@@ -1,9 +1,16 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+    console.log('I am ready!');
 });
+
+client.on('message', message => {
+    if (message.content === 'ping') {
+    	message.reply('pong');
+  	}
+});
+
 
 //الاوامر//
 
@@ -12524,4 +12531,7 @@ message.member.addRole(message.guild.roles.find("name", "100"));
 });
 
 
-client.login('NDMxODM2NTYzMzc5MzIyODgw.Dapttw.4nzKW3EAeQEYgPnNbq8hz4d5CFM');
+
+
+// THIS  MUST  BE  THIS  WAY
+client.login(process.env.BOT_TOKEN);
