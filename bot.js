@@ -265,7 +265,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : i1Suhaib ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(` ON ${Rv clan}`,"http://twitch.tv/S-F")
+client.user.setGame('Rv clan} - *help`,"http://twitch.tv/S-F")
 client.user.setStatus("dnd")
 });
 client.on("guildCreate", guild => {
