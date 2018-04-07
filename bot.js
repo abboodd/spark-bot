@@ -12,8 +12,6 @@ client.on('message', message => {
 });
 
 
-//الاوامر//
-
 
 client.on("message", message => {
  if (message.content === "f!help") {
