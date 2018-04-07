@@ -30,7 +30,7 @@ client.on('message', message => {
 .addField('     **&clear** ' , '**لـ مسح الشات** ')
 .addField('     **&roles** ' , '**لـ اظهار الرتب الخاصة في السيرفر** ')
 .addField('للأستفسار أو الرد على أسئلتكم وأفكـــاركم كلمني على الديسكورد ' , '**! ҜṦẰ - KBOOSH - كبوش—Ƴ丅 0.3K#3128**')
-.addField('**لدعوة البوت للسيرفر ..**' , '**https://discordapp.com/oauth2/authorize?client_id=345157648531849216&scope=bot&permissions=0**')
+.addField('**لدعوة البوت للسيرفر ..**' , '**https://discordapp.com/oauth2/authorize?client_id=431836563379322880&scope=bot&permissions=0**')
 .setColor('RANDOM')
   message.channel.sendEmbed(embed);
     }
