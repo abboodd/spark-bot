@@ -18,7 +18,7 @@ client.on('message', message => {
   
   let command = message.content.split(" ")[0];
   
-  if (command === ".unmute") {
+  if (command === "&unmute") {
         if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **").catch(console.error);
   let user = message.mentions.users.first();
   let modlog = client.channels.find('name', 'mute-log');
