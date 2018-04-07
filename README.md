@@ -1,2 +1,2 @@
-# spark-bot
-spark new bot
+# RV-bot
+RV new bot
