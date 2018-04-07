@@ -325,20 +325,7 @@ client.on('message', message => {
 });
 
 
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const ytdl = require('ytdl-core');
-const request = require('request');
-const fs = require('fs');
-const getYoutubeID = require('get-youtube-id');
-const fetchVideoInfo = require('youtube-info');
 
-const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
-const prefix = '*';
-const discord_token = "NDIyMDM3NzQwNTkxMzgyNTI4.DYV8zA.6vBJjF7Op9T_bH_YOwRMXqwh9vc";
-client.login(discord_token);
-client.on('ready', function() {
-	console.log(`i am ready ${client.user.username}`);
 });
 /*
 ////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -378,7 +365,7 @@ client.on('message', function(message) {
 	const mess = message.content.toLowerCase();
 	const args = message.content.split(' ').slice(1).join(' ');
 
-	if (mess.startsWith(prefix + 'play')) {
+	if (mess.startsWith(prefix + '*play')) {
 		if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply(':x:');
 		if (!message.member.voiceChannel) return message.reply('** You Are Not In VoiceChannel **');
 		// if user is not insert the URL or song title
