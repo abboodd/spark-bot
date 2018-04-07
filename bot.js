@@ -41,7 +41,7 @@ const dot = new Discord.Client();
 client.on('message', message => {
     
     if (message.content === "&s") {
-        setInterval(function(){
+        setInterval(function(&say){
         message.edit('**✱➼**')    
         message.edit('**✱➼ V**')    
         message.edit('**✱➼ VI**')
