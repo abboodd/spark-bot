@@ -36,26 +36,5 @@ client.on('message', message => {
     }
 });
 
-
-const dot = new Discord.Client();
-client.on('message', message => {
-    
-    if (message.content === "&s") {
-        setInterval(function(&say){
-        message.edit('**✱➼**')    
-        message.edit('**✱➼ V**')    
-        message.edit('**✱➼ VI**')
-        message.edit('**✱➼ VIG**')
-        message.edit('**✱➼ VIGE**')
-        message.edit('**✱➼ VIGET**')
-        message.edit('**✱➼ VIGETA**')
-        message.edit('**✱➼ VIGETA.**')
-    
-        }, 1000)
-    }
-    
-})
-
-
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
