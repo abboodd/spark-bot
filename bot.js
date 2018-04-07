@@ -39,7 +39,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-    if (message.content.startsWith("$avatar")) {
+    if (message.content.startsWith("&avatar")) {
 if(!message.channel.guild) return;
         var mentionned = message.mentions.users.first();
     var client;
