@@ -1183,11 +1183,15 @@ client.on('message', message => {
 
 
 
+const Discord = require("discord.js");
+const client = new Discord.Client();
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag} !`);
-                client.user.setActivity("^^help",{type: 'http://twitch.tv/S-F'});
+        client.user.setActivity("^^help",{type: 'http://twitch.tv/S-F'});
 
 });
+
 
 
 // THIS  MUST  BE  THIS  WAY
