@@ -1182,15 +1182,6 @@ client.on('message', message => {
 });
 
 
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag} !`);
-        client.user.setActivity("^^help",{type: 'http://twitch.tv/S-F'});
-
-});
-
-
-
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
 
