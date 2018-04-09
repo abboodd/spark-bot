@@ -913,7 +913,7 @@ client.on('message', message=>{
   
   
 client.on('message', message => {
- if (message.content.startsWith("ترحيب 1")) {
+ if (message.content.startsWith("منور")) {
                                  var mentionned = message.mentions.users.first();
              var mentionavatar;
                if(mentionned){
@@ -1191,6 +1191,19 @@ client.on('ready', () => {
    console.log(`Logged in as ${client.user.tag}!`);
    client.user.setGame(`^^help`,"http://twitch.tv/y04zgamer")
    client.user.setStatus("dnd")
+});
+
+
+client.on('message', message => {
+            if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('-bc-users')){
+ if(!message.author.id === '270978812962013185') return;
+message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
 });
 
 
