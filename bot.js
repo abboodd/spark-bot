@@ -1223,14 +1223,14 @@ m.sendMessage(args)
                      
                                      .addField(' الـسيرفر', `${member.guild.name}`,true)
                                        
-     .setFooter("**اسم السيرفر حقق هنا **")
+     .setFooter("** 𝐑v™ **")
         .setTimestamp()
    
       channel.sendEmbed(embed);
     });
 
 client.on('message', function(message) {
-    if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+    if (!message.member.hasPermissions(['☬ | Administrator'])){
             let command = message.content.split(" ")[0];
         if(message.content.includes('discord.gg')){
         message.reply (' ')
@@ -1239,7 +1239,7 @@ client.on('message', function(message) {
     const embed500 = new Discord.RichEmbed()
       .setTitle(":x: | تمت معاقبتك")
             .addField(`** لقد قمت بمخالفة قوانين السيرفر من خلال نشر سيرفرات اخرى  **` , `**ملاحظة  : إن كآن هذآ الميوت عن طريق الخطأ تكلم مع الادآرة**`)
-      .addField(`by`,`iMr.KBOOSH`)
+      .addField(`by`,`spark`)
             .setColor("c91616")
             .setThumbnail(`${message.author.avatarURL}`)
             .setAuthor(message.author.username, message.author.avatarURL)
