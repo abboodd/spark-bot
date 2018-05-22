@@ -323,11 +323,9 @@ NormalBc.on("collect", r => {
 message.guild.members.forEach(m => {
 m.send(args);
 msg.delete();
-})
-})
-})
-}
-});
+
+  }
+}); 
 
 
 // THIS  MUST  BE  THIS  WAY
