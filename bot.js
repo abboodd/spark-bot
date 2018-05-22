@@ -328,8 +328,8 @@ var Canvas = require('canvas')
 var jimp = require('jimp')
 client.on('guildMemberAdd', member => {
       
-        if (member.guild.id === "ايدي السيرفر") {
-        var w = ['مسار الصوره مثل ذا./img/12.png'];
+        if (member.guild.id === "430256496824287233") {
+        var w = ['https://media.discordapp.net/attachments/446874043786723348/447067366959087616/welcome.png'];
            let Image = Canvas.Image,
                canvas = new Canvas(401, 202),
                ctx = canvas.getContext('2d');
@@ -363,8 +363,8 @@ client.on('guildMemberAdd', member => {
                                  ctx.closePath();
                                  ctx.clip();
                                  ctx.drawImage(ava, 10, 25, 135, 170);                    
-   client.channels.get("ايدي الروم").sendFile(canvas.toBuffer())
-  client.channels.get("ايدي الروم").send(`Welcome ${member} To __${member.guild.name}__`)
+   client.channels.get("ا430280438674620436").sendFile(canvas.toBuffer())
+  client.channels.get("430280438674620436").send(`Welcome ${member} To __${member.guild.name}__`)
    })})  }
    });
 
