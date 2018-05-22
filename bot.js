@@ -78,7 +78,7 @@ message.author.sendEmbed(embed)
 
 
 client.on('message', message => {
-if (message.content === "*help") {
+if (message.content === "r-help") {
 message.reply("**Done | تــم**")
 message.reply("**تم ارسال اوامر البوت في الخاص**")
 message.react("??")
@@ -117,21 +117,6 @@ client.on('message', message => {
 });
 
 
-
-client.on('message', message => {
-      if (message.content.startsWith(prefix + 'امسح')) {
-    if(!message.channel.guild) return;
-let args = message.content.split(" ").slice(1);
-
-  const messagecount = parseInt(args.join(' '));
-  
- message.channel.send(`\`\`\`js\nDone ${messagecount} Deleted\`\`\``)
-  message.channel.fetchMessages({
- 
-    limit: messagecount
- 
-}).then(messages => message.channel.bulkDelete(messages));
-};
 
   
   
