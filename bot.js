@@ -79,7 +79,7 @@ message.author.sendEmbed(embed)
 }); 
 
     client.on('message', message => {
-     if (message.content === "*id") {
+     if (message.content === "r-id") {
      let embed = new Discord.RichEmbed()
   .setThumbnail(message.author.avatarURL)  
   .setAuthor(message.author.username)
