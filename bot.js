@@ -91,7 +91,7 @@ message.author.sendEmbed(embed)
   .addField("الرقـــم الشـــخصي", message.author.id)
   .addField('بــــوت', message.author.bot)
   .addField("تاريخ التسجيل", message.author.createdAt)
-     
+  .addField(': عدد الدعوات', inviteCount,false)
      
   message.channel.sendEmbed(embed);
     }
