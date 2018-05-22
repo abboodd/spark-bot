@@ -259,7 +259,7 @@ if (message.content.startsWith("r-cv")) {
 }); 
 
 client.on('message', (message) => {
-    if (message.content.startsWith('r-ban ')) {
+    if (message.content.startsWith('r-ban')) {
       if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply('هذا الخاصية للدارة فقط');
         var member= message.mentions.members.first();
         member.ban().then((member) => {
