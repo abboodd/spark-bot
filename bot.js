@@ -31,34 +31,28 @@ client.on("message", message => {
         ***__General orders__***
 **
 『r-id / معلومات عن حسابك』
-『server / معلومات عن السيرفر』
-『avatar / يعرض صورتك او صوره شخص』
+『r-server / معلومات عن السيرفر』
+『r-avatar / يعرض صورتك او صوره شخص』
 **
 
         ***__Bot orders__***
 **
-『ping / يعرض لك سرعه اتصال البوت』
-『support / سيرفر الدعم القني و المساعده』
-『invite / اضافه البوت』
-『members / حاله الاعضاء』
+『r-ping / يعرض لك سرعه اتصال البوت』
+『r-support / سيرفر الدعم القني و المساعده』
+『r-invite / اضافه البوت』
 **
 
         ***__Administrative Orders__***
 **
-『kick / كيك』
-『ban / بان』
-『mute /ميوت』
-『unmute /فك الميوت』
-『mutechannel /قفل الشات』
-『unmutechannel /فتح الشات』
-f!add.r
-『delet / مسح روم』
-『color 50 /انشاء 50 لون』
-『color 100/انشاء 100 لون』
-『color 140/انشاء 140 لوم』
-『ct /انشاء روم كتابي』
-『cv /انشاء روم صوتي』
-『bc /برودكاست』
+『r-kick / كيك』
+『r-ban / باند』
+『r-mute /ميوت』
+『r-unmute /فك الميوت』
+『r-mutechannel /قفل الشات』
+『r-unmutechannel /فتح الشات』
+『r-ct /انشاء روم كتابي』
+『r-cv /انشاء روم صوتي』
+『r-bc /برودكاست』
 **
         
 `)
@@ -177,7 +171,7 @@ client.on('message', message => {
 client.on('message', message => {
   if (true) {
 if (message.content === 'r-invite') {
-      message.author.send(' رابط البوت |  https://discordapp.com/oauth2/authorize?client_id=378398305153187840&scope=bot&permissions=2146958591 ').catch(e => console.log(e.stack));
+      message.author.send(' رابط البوت |  https://discordapp.com/oauth2/authorize/?permissions=817897534&scope=bot&client_id=431836563379322880  ').catch(e => console.log(e.stack));
 
     }
    } 
@@ -195,6 +189,100 @@ client.on('message', message => {
   message.channel.sendEmbed(embed);
     }
 });
+
+
+client.on('message', message => {
+                                if(!message.channel.guild) return;
+                        if (message.content.startsWith('r-ping')) {
+                            if(!message.channel.guild) return;
+                            var msg = `${Date.now() - message.createdTimestamp}`
+                            var api = `${Math.round(client.ping)}`
+                            if (message.author.bot) return;
+                        let embed = new Discord.RichEmbed()
+                        .setAuthor(message.author.username,message.author.avatarURL)
+                        .setThumbnail('https://cdn.discordapp.com/avatars/368141321547808768/c42716e13cb850f9ad0930af699472d0.png?size=2048nk')
+                        .setColor('RANDOM')
+                        .addField('**Time Taken:**',msg + " ms")
+                        .addField('**WebSocket:**',api + " ms")
+         message.channel.send({embed:embed});
+                        }
+                    });
+
+client.on('message', message => {
+    if (message.content.startsWith("r-avatar")) {
+        var mentionned = message.mentions.users.first();
+    var x5bzm;
+      if(mentionned){
+          var x5bzm = mentionned;
+      } else {
+          var x5bzm = message.author;
+          
+      }
+        const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setImage(`${x5bzm.avatarURL}`)
+      message.channel.sendEmbed(embed);
+    }
+});
+
+
+client.on("message", (message) => {
+if (message.content.startsWith("r-ct")) {
+            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+        let args = message.content.split(" ").slice(1);
+    message.guild.createChannel(args.join(' '), 'text');
+message.channel.sendMessage('تـم إنـشاء روم كـتابـي')
+
+}
+});
+
+
+client.on("message", (message) => {
+if (message.content.startsWith("r-cv")) {
+            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
+        let args = message.content.split(" ").slice(1);
+    message.guild.createChannel(args.join(' '), 'voice');
+    message.channel.sendMessage('تـم إنـشاء روم صـوتي')
+    
+}
+});
+
+ client.on('message', (message) => {
+    if (message.content.startsWith('r-kick')) {
+        var member= message.mentions.members.first();
+        member.kick().then((member) => {
+            message.channel.send(member.displayName + ' تم طرد هذا الشخص من السيرفر');
+        }).catch(() => {
+            message.channel.send(":x:");
+        });
+    }
+}); 
+
+client.on('message', (message) => {
+    if (message.content.startsWith('r-ban ')) {
+      if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply('هذا الخاصية للدارة فقط');
+        var member= message.mentions.members.first();
+        member.ban().then((member) => {
+         message.channel.send(member.displayName + 'تم طرد هذا الشخص من السيرفر');
+        }).catch(() => {
+            message.channel.send('Error :_:');
+        });
+    }
+});
+
+client.on('message', message => {
+    if(message.content === "r-bot") {
+        const embed = new Discord.RichEmbed()
+        .setColor("#00FFFF")
+  .addField('**الذاكرة المستخدمة 💾**', `${(process.memoryUsage().rss / 1000000).toFixed()}MB`, true)
+         .addField('**سرعة الاتصال📡**' , `${Date.now() - message.createdTimestamp}` + ' ms')
+        .addField('**استخدام المعالج💿**', `${(process.cpuUsage().rss / 10000).toFixed()}%`, true)
+        .addField('**:globe_with_meridians: عدد السيرفرات**' , `${client.guilds.size}`, true)
+        .addField('**عدد المستخدمين 👥 **' , `${client.users.size}`, true)
+               message.channel.sendEmbed(embed);
+           }
+});
+
 
 
 
