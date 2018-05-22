@@ -346,7 +346,32 @@ m.sendMessage(args)
 });
 
 
-  
+  const Discord = require("discord.js");
+const client = new Discord.Client();
+
+
+
+client.on("ready", () => {
+console.log('By : Kyle');
+console.log('ready');
+client.user.setPresence({
+  status: 'dnd',
+  game: { 
+     type: 0,
+     name: '•●{رَمِضّاِنُ كـــًرًيَـــمً ~☾',
+     details: `for help you ^^`,
+     url: 'http://twitch.tv/M7md_Salih',
+     state: `r-help`,
+    application_id: '394600839496466443',
+     assets: {
+        small_image: `444859352093032449`,
+        small_text: '2018',
+        large_image: `444864778465181706`,
+        large_text: `Ramadan Mubarak` }
+
+  }
+    });
+});
 
    
       
