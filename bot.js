@@ -6,8 +6,8 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  if (msg.content === 'r-help') {
-    msg.reply('تم ارسال الاوامر في الخاص');
+  if (msg.content === 'ping') {
+    msg.reply('! pong');
   }
 });
 
@@ -76,6 +76,17 @@ message.author.sendEmbed(embed)
 }
 }); 
 
+
+client.on('message', message => {
+if (message.content === "*help") {
+message.reply("**Done | تــم**")
+message.reply("**تم ارسال اوامر البوت في الخاص**")
+message.react("??")
+
+}
+});
+
+
     client.on('message', message => {
      if (message.content === "r-id") {
      let embed = new Discord.RichEmbed()
@@ -122,14 +133,6 @@ let args = message.content.split(" ").slice(1);
 }).then(messages => message.channel.bulkDelete(messages));
 };
 
-  client.on('message', message => {
-     if (message.content === "r-servers") {
-     let embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .addField("**Servers: **" , client.guilds.size)
-  message.channel.sendEmbed(embed);
-    }
-});
   
   
 
