@@ -354,18 +354,8 @@ client.on('guildMemberAdd', member => {
   channel.send(`***بكل حب واحترام وشوق نستقبلك ونتمنى لك قضآء أجمل اللحظات ولآوقات معنا حياك الله***, ${member}`);
   
 });
-   
-const Discord = require("discord.js");
-const client = new Discord.Client();
 
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag} !`);
-                client.user.setActivity("The World",{type: 'WATCHING'});
-
-});
-
-      
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
 
