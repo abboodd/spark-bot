@@ -44,7 +44,7 @@ client.on("message", message => {
 
         ***__Administrative Orders__***
 **
-『لمسح الشات / امسح』
+『لمسح الشات / r-امسح』
 غير مفعل『r-kick / كيك』
 غير مفعل『r-ban / باند』
 غير مفعل『r-mute /ميوت』
@@ -167,7 +167,7 @@ client.on('message', message => {
 });
 
 client.on("message", message => {
-    var prefix = "*";
+    var prefix = "r-";
  
             var args = message.content.substring(prefix.length).split(" ");
             if (message.content.startsWith(prefix + "امسح")) {
@@ -345,6 +345,8 @@ m.sendMessage(args)
 }
 });
 
+
+  
 
    
       
