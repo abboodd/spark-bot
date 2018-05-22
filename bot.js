@@ -6,8 +6,8 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('Pong!');
+  if (msg.content === 'r-help') {
+    msg.reply('تم ارسال الاوامر في الخاص!');
   }
 });
 
