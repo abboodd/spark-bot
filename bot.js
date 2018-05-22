@@ -48,8 +48,8 @@ client.on("message", message => {
 『r-ban / باند』
 『r-mute /ميوت』
 『r-unmute /فك الميوت』
-『r-mutechannel /قفل الشات』
-『r-unmutechannel /فتح الشات』
+『قفل الشات』
+『 افتح الشات』
 『r-ct /انشاء روم كتابي』
 『r-cv /انشاء روم صوتي』
 『r-bc /برودكاست』
@@ -282,6 +282,32 @@ client.on('message', message => {
                message.channel.sendEmbed(embed);
            }
 });
+
+
+ if (message.content === "prefixقفل الشات") {
+                        if(!message.channel.guild) return message.reply(' This command only for servers');
+
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: false
+
+           }).then(() => {
+               message.reply("تم تقفيل الشات :white_check_mark: ")
+           });
+             }
+if (message.content === "prefixافتح الشات") {
+    if(!message.channel.guild) return message.reply(' هذا الامر للسيرفرات فقط');
+
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: true
+
+           }).then(() => {
+               message.reply("تم فتح الشات:white_check_mark:")
+           });
+             }
+
+
 
 
 
