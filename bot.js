@@ -32,22 +32,15 @@ client.on("message", message => {
 **
 『r-id / معلومات عن حسابك』
 『server / معلومات عن السيرفر』
-『animal / يعطيك صور حيوانات』
-『image / يعرض صوره السيرفر』
 『avatar / يعرض صورتك او صوره شخص』
-『time / يعرض لك الوقت』
-『date / يعرض لك التاريخ』
-『dt / يعرض الوقت في الامارات و مكه المكرمه و مصر و التاريخ』
 **
 
         ***__Bot orders__***
 **
 『ping / يعرض لك سرعه اتصال البوت』
-『uptime / يعرض لك صار للبوت كم شغال』
 『support / سيرفر الدعم القني و المساعده』
 『invite / اضافه البوت』
 『members / حاله الاعضاء』
-『bot / معلومات عن البوت』
 **
 
         ***__Administrative Orders__***
@@ -116,10 +109,94 @@ client.on('message', message => {
     }
 });
 
+client.on('message', message => {
+    if (message.content === "r-server") {
+        if (!message.channel.guild) return
+        var verificationLevel = message.guild.verificationLevel;
+        const verificationLevels = ['None','Low','Meduim','High','Extreme'];
+        var Y1 = message.guild.createdAt.getFullYear() - 2000
+        var M2 = message.guild.createdAt.getMonth()
+        var D3 = message.guild.createdAt.getDate()
+        const xNiTRoZ = new Discord.RichEmbed()
+         .setAuthor(message.author.username , message.author.avatarURL)
+         .setColor('RANDOM')
+         .setTimestamp()
+         .setTitle(message.guild.name,message.guild.iconURL)
+         .addField(':id: اي دي السيرفر',`${message.guild.id}`,true)
+         .addField(':date: أنشئت في',D3 + '.' + M2 + '.' + Y1,true)             
+         .addField(':crown: اونر السيرفر',`${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`)             
+         .addField(':busts_in_silhouette: الاعضاء ' + ` ${message.guild.memberCount} `,'Online '+`[ ${message.guild.members.filter(m=>m.presence.status == 'online','idle','dnd').size} ]`+ ','+'Offline '+`[ ${message.guild.members.filter(m=>m.presence.status == 'offline').size} ]`,true)
+         .addField(':speech_balloon: قنوات' +' '+message.guild.channels.size+' ',`Text [ ${message.guild.channels.filter(m => m.type === 'text').size} ]`+', '+`Voice [ ${message.guild.channels.filter(m => m.type === 'voice').size} ]`,true)
+         .addField(':earth_asia: الدوله',message.guild.region)
+         .addField(':ribbon: ايموجي السيرفر',`${message.guild.emojis.size}`,true)
+         .addField(':construction: مستوى التحقق',`${verificationLevels[message.guild.verificationLevel]}`,true)
+         .addField(':closed_lock_with_key: الرتب  '+message.guild.roles.size+' ','Type `.roles` To See The Server Roles!')
+         message.channel.send({embed:xNiTRoZ});
+     }
+    });
 
 
+
+  client.on('message', message => {
+     if (message.content === "r-bot") {
+            if(!message.channel.guild) return message.reply('** This command only for servers **');
+     let embed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .addField("**عدد السيرفرات الي فيها البوت:**" , client.guilds.size)
+  .addField("**المستخدمين:**", client.users.size)
+  .addField("**قنوات:**", client.channels.size)
+  .setTimestamp()
+message.channel.sendEmbed(embed);
+    }
+});
   
-  
+client.on('message', message => {
+  if (true) {
+if (message.content === 'r-support') {
+      message.author.send(' |https://discord.gg/keSjKZm| لـ أي استفسار').catch(e => console.log(e.stack));
+
+    }
+   } 
+  });
+
+
+client.on('message', message => {
+     if (message.content === "r-support") {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#9B59B6")
+  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
+     
+     
+     
+  message.channel.sendEmbed(embed);
+    }
+});
+
+
+client.on('message', message => {
+  if (true) {
+if (message.content === 'r-invite') {
+      message.author.send(' رابط البوت |  https://discordapp.com/oauth2/authorize?client_id=378398305153187840&scope=bot&permissions=2146958591 ').catch(e => console.log(e.stack));
+
+    }
+   } 
+  });
+
+client.on('message', message => {
+     if (message.content === "r-invite") {
+     let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setColor("#9B59B6")
+  .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
+     
+     
+     
+  message.channel.sendEmbed(embed);
+    }
+});
+
+
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
