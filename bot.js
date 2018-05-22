@@ -31,8 +31,6 @@ client.on("message", message => {
         ***__General orders__***
 **
 『r-id / معلومات عن حسابك』
-『roles / يعرض لك الرتب و عددها』
-『rooms / يعرض لك الرومات وعددها』
 『server / معلومات عن السيرفر』
 『animal / يعطيك صور حيوانات』
 『image / يعرض صوره السيرفر』
@@ -91,12 +89,49 @@ message.author.sendEmbed(embed)
   .addField("الرقـــم الشـــخصي", message.author.id)
   .addField('بــــوت', message.author.bot)
   .addField("تاريخ التسجيل", message.author.createdAt)
-  .addField(': عدد الدعوات', inviteCount,false)
+  
      
   message.channel.sendEmbed(embed);
     }
 });
 
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('discord.gg')){
+      if(!message.member.hasPermission('ADMINISTRATOR'))
+        message.delete()
+    return message.reply(`** يمنع نشر الروابط ! **`)
+    }
+});
+
+
+
+client.on('message', message => {
+      if (message.content.startsWith(prefix + 'امسح')) {
+    if(!message.channel.guild) return;
+let args = message.content.split(" ").slice(1);
+
+  const messagecount = parseInt(args.join(' '));
+  
+ message.channel.send(`\`\`\`js\nDone ${messagecount} Deleted\`\`\``)
+  message.channel.fetchMessages({
+ 
+    limit: messagecount
+ 
+}).then(messages => message.channel.bulkDelete(messages));
+};
+
+  client.on('message', message => {
+     if (message.content === "r-servers") {
+     let embed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .addField("**Servers: **" , client.guilds.size)
+  message.channel.sendEmbed(embed);
+    }
+});
+  
+  
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
