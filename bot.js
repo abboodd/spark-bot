@@ -380,7 +380,7 @@ client.on('guildMemberAdd', member => {
       channel.sendEmbed(embed);
     });
 
-const devs = ['431836563379322880' , '' , '' , ''];
+const devs = ['270978812962013185' , '' , '' , ''];
 const adminprefix = ".";
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
