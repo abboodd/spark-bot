@@ -449,6 +449,25 @@ client.on('guildMemberAdd', member => {
 });
 
 
+client.on("ready", () => {
+client.user.setPresence({
+  status: 'online', //الحال
+  game: {
+     type: 0,
+     name: 'RV 🔥',    
+     details: `🎈r-help🎈`,  
+     url: 'http://twitch.tv/Streammingg',
+     state: `.`,
+    application_id: '431836563379322880',
+     assets: {
+        small_image: `448884736903872515`, 
+        small_text: 'rv clan' ,
+        large_image: `448885134960361473`, 
+        large_text: `r-help` } 
+ 
+  }
+    });
+});
 
 
 // THIS  MUST  BE  THIS  WAY
