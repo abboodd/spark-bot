@@ -47,8 +47,8 @@ client.on("message", message => {
 『لمسح الشات / r-امسح』
 غير مفعل『r-kick / كيك』
 غير مفعل『r-ban / باند』
-غير مفعل『r-mute /ميوت』
-غير مفعل『r-unmute /فك الميوت』
+『r-mute /ميوت』
+『r-unmute /فك الميوت』
 『r-ct /انشاء روم كتابي』
 『r-cv /انشاء روم صوتي』
 『r-bc /برودكاست』
@@ -378,7 +378,7 @@ client.on('ready', function(){
 
 client.on("message", message => {
   let command = message.content.split(" ")[0];
-  if (command === "<mute") {
+  if (command === "r-mute") {
           if(!message.channel.guild) return message.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');
                   if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **");
   let user = message.mentions.users.first();
@@ -406,7 +406,7 @@ client.on("message", message => {
   }
 
 };
-    if (command === "<unmute") {
+    if (command === "r-unmute") {
           if(!message.channel.guild) return message.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
         if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("** لا يوجد لديك برمشن 'Manage Roles' **");
   let user = message.mentions.users.first();
