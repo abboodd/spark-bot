@@ -360,7 +360,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('ready', function(){
     var ms = 100000 ;
-    var setGame = [`r-help} `,`r-invite Users ${client.users.size}`];
+    var setGame = [`r-help} `,`r-invite Users}`];
     var i = -1;
     var j = 0;
     setInterval(function (){
