@@ -53,7 +53,9 @@ client.on("message", message => {
 『r-cv /انشاء روم صوتي』
 『r-bc /برودكاست』
 **
-        
+معلومات 
+يوجد ترحيب في الكلام فقط اذا بدك ياه خلي الروم اسمه wlc فقط
+chatاضافة ترحيب في الشات الرسمي يجب ان يكون اسمه فقط
 `)
 
 
@@ -357,7 +359,7 @@ client.on('guildMemberAdd', member => {
 
 
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'wlc');
+    let channel = member.guild.channels.find('name', 'chat');
     let memberavatar = member.user.avatarURL
       if (!channel) return;
     let embed = new Discord.RichEmbed()
