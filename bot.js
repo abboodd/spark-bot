@@ -452,18 +452,6 @@ client.on('guildMemberRemove', member => {
         channel.send({embed:embed});
       });
       
-client.on('guildMemberRemove', member => {
-      let channel = member.guild.channels.find('name', 'wlc');
-        if (!channel) return; 
-        let memberavatar = member.user.avatarURL
-      let embed = new Discord.RichEmbed()
-          .setColor('RED')
-          .setThumbnail(member.avatar)
-          .addField(':x: لقد خرج ',`**[ ${member} ]**`,true)
-          .addField(':man_dancing:  تبقي',`**[ ${member.guild.memberCount} ]**`,true)      
-          channel.send(``)
-        channel.send({embed:embed});
-      });
 
 client.on('guildMemberAdd', member => {
   let channel = member.guild.channels.find('name','chat');
