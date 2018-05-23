@@ -45,8 +45,8 @@ client.on("message", message => {
         ***__Administrative Orders__***
 **
 『لمسح الشات / r-امسح』
-غير مفعل『r-kick / كيك』
-غير مفعل『r-ban / باند』
+『kick / كيك』
+『ban / باند』
 『r-mute /ميوت』
 『r-unmute /فك الميوت』
 『r-ct /انشاء روم كتابي』
@@ -496,6 +496,88 @@ message.channel.sendFile(canvas.toBuffer());
 }
 
 });
+
+client.on('message', message => {
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+  
+
+
+  if (command == "kick") {
+  if(!message.channel.guild) return message.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
+  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**انت لا تملك صلاحية للكيك**");
+  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**البوت لا يملك صلاحيات الكيك");
+  let user = message.mentions.users.first();
+  let reason = message.content.split(" ").slice(2).join(" ");
+if (message.mentions.users.size < 1) return message.reply("**منشن الشخص المراد طرده**");
+if (!message.guild.member(user)
+.kickable) return message.reply("**لايمكنني طرد هذا الشخص**");
+
+  message.guild.member(user).kick();
+
+  const kickembed = new Discord.RichEmbed()
+  .setAuthor(`تم طرد العضو`, user.displayAvatarURL)
+  .setColor("#502faf")
+  .setTimestamp()
+  .addField("**العضو اللي انطرد**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**العضو اللي قام بالطرد**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**السبب**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : kickembed
+    
+  })
+}
+});
+
+client.on('message', message => {
+  if (message.author.boss) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "ban") {
+      if(!message.channel.guild) return message.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
+  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**انت لا تملك صلاحية الباند**");
+  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("البوت لايملك صلاحيات الباند");
+  let user = message.mentions.users.first();
+  let reason = message.content.split(" ").slice(2).join(" ");
+if (message.mentions.users.size < 1) return message.reply("**منشن الشخص اللي تريد تبنيده**");
+  if (!message.guild.member(user)
+.kickable) return message.reply("**لايمكنني تبنيد هذا الشخص**");
+
+  message.guild.member(user).ban();
+
+  const banembed = new Discord.RichEmbed()
+  .setAuthor(`تم تبنيد العضو`, user.displayAvatarURL)
+  .setColor("#502faf")
+  .setTimestamp()
+  .addField("**العضو الي تبند:**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**العضو اللي قام بتبنيده:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**السبب**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : banembed
+  })
+}
+});
+
+client.on('message', message => {
+  if(message.content.startsWith (prefix  + 'roles')) {
+    if(!message.channel.guild) return message.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
+      var roles = message.guild.roles.map(roles => `${roles.name}, `).join(' ')
+      const embed = new Discord.RichEmbed()
+      .setColor('RANDOM')
+      .addField(':trophy:  عدد الرتب',`**[ ${message.guild.roles.size} ]**`)
+      message.channel.sendEmbed(embed);
+  }
+});
+
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
 
