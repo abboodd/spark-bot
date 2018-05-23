@@ -466,50 +466,46 @@ client.on('guildMemberAdd', member => {
      channel.send({embed:embed});
 });
 
-var fs = require('fs');
-var Canvas = require('canvas')
-var jimp = require('jimp')
-client.on('guildMemberAdd', member => {
-      
-        if (member.guild.id === "431836563379322880") {
-        var w = ['مسار الصوره مثل ذا./img/12.png'];
-           let Image = Canvas.Image,
-               canvas = new Canvas(401, 202),
-               ctx = canvas.getContext('2d');
-           ctx.patternQuality = 'bilinear';
-           ctx.filter = 'bilinear';
-           ctx.antialias = 'subpixel';
-           ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
-           ctx.shadowOffsetY = 2;
-           ctx.shadowBlur = 2;
-           fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-               if (err) return console.log(err);
-               let BG = Canvas.Image;
-               let ground = new Image;
-               ground.src = Background;
-               ctx.drawImage(ground, 0, 0, 401, 202);
-   
-   })
-   
-                   let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(5, -20) + ".png" : member.user.displayAvatarURL;
-                   jimp.read(url, (err, ava) => {
-                       if (err) return console.log(err);
-                       ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                           if (err) return console.log(err);
 
-                              let Avatar = Canvas.Image;
-                              let ava = new Avatar;
-                              ava.src = buf;
-                              ctx.beginPath();
-                              ctx.arc(75, 100, 63, 0, Math.PI*2);
-                                 ctx.closePath();
-                                 ctx.clip();
-                                 ctx.drawImage(ava, 10, 25, 135, 170);                    
-   client.channels.get("430281428391952394").sendFile(canvas.toBuffer())
-  client.channels.get("430281428391952394").send(`Welcome ${member} To __${member.guild.name}__`)
-   })})  }
-   });
+var prefix = "r-"
+client.on('message', message => {
+  if (message.author.x5bz) return;
+  if (!message.content.startsWith(prefix)) return;
 
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "ban") {
+               if(!message.channel.guild) return message.reply('** This command only for servers**');
+         
+  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**You Don't Have ` BAN_MEMBERS ` Permission**");
+  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+  let user = message.mentions.users.first();
+  let reason = message.content.split(" ").slice(2).join(" ");
+  /*let b5bzlog = client.channels.find("name", "5bz-log");
+
+  if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
+  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+  if(!reason) return message.reply ("**اكتب سبب الطرد**");
+  if (!message.guild.member(user)
+  .bannable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
+
+  message.guild.member(user).ban(7, user);
+
+  const banembed = new Discord.RichEmbed()
+  .setAuthor(`BANNED!`, user.displayAvatarURL)
+  .setColor("RANDOM")
+  .setTimestamp()
+  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : banembed
+  })
+}
+});
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
