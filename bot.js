@@ -360,7 +360,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('ready', function(){
     var ms = 100000 ;
-    var setGame = [`<<help Servers. `,`<<invite Users.`];
+    var setGame = [`r-help Servers  `,`r-invite Users`];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -374,7 +374,6 @@ client.on('ready', function(){
         client.user.setGame(setGame[i],`http://www.twitch.tv/KiNg66S`);
     }, ms);100000
 
-});
 });
 
 
