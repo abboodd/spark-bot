@@ -44,9 +44,9 @@ client.on("message", message => {
 
         ***__Administrative Orders__***
 **
-『لمسح الشات / r-امسح』
-『kick / كيك』
-『ban / باند』
+『لمسح الشات / r-clear』
+غير مفعل『kick / كيك』
+غير مفعل『ban / باند』
 『r-mute /ميوت』
 『r-unmute /فك الميوت』
 『r-ct /انشاء روم كتابي』
