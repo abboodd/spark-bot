@@ -358,33 +358,23 @@ client.on('guildMemberAdd', member => {
 });
 
 
+client.on('ready', function(){
+    var ms = 100000 ;
+    var setGame = [`r-help Servers ${client.guilds.size} `,`r-invite Users ${client.users.size}`];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/KiNg66S`);
+    }, ms);100000
 
-client.on('guildMemberAdd', member => {
-  let channel = member.guild.channels.find('name','chat');
-     if (!channel) return; 
-          let memberavatar = member.user.avatarURL
-        let embed = new Discord.RichEmbed()
-    .setThumbnail(memberavatar)
-       .setColor('BLUE')
-       .addField(':sunflower:  حياك الله منور السيرفر',`**[ ${member} ]**`,true)
-       .addField(':levitate: انت العضو رقم',`**[ ${member.guild.memberCount} ]**`,true)
-       channel.send(``)
-     channel.send({embed:embed});
 });
-
-client.on('guildMemberRemove', member => {
-      let channel = member.guild.channels.find('name', wlc');
-        if (!channel) return; 
-        let memberavatar = member.user.avatarURL
-      let embed = new Discord.RichEmbed()
-          .setColor('RED')
-          .setThumbnail(member.avatar)
-          .addField(':x: لقد خرج ',`**[ ${member} ]**`,true)
-          .addField(':man_dancing:  تبقي',`**[ ${member.guild.memberCount} ]**`,true)      
-          channel.send(``)
-        channel.send({embed:embed});
-      });
-
 
 
 // THIS  MUST  BE  THIS  WAY
