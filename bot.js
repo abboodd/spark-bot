@@ -358,52 +358,33 @@ client.on('guildMemberAdd', member => {
 });
 
 
-client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'chat');
-    let memberavatar = member.user.avatarURL
-      if (!channel) return;
-    let embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(memberavatar)
-        .addField(':running_shirt_with_sash: | name :  ',`${member}`)
-        .addField(':loudspeaker: | نورت السيرفر يا قلبي' , `Welcome to the server, ${member}`)
-        .addField(':id: | user :', "**[" + `${member.id}` + "]**" )
-                .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
-               
-                  .addField("Name:",`<@` + `${member.id}` + `>`, true)
-                     
-                                     .addField(' الـسيرفر', `${member.guild.name}`,true)
-                                       
-     .setFooter("**𝐑v™**")
-        .setTimestamp()
-   
-      channel.sendEmbed(embed);
-    });
 
-var fs = require('fs');
-var Canvas = require('canvas')
-var jimp = require('jimp')
 client.on('guildMemberAdd', member => {
-      
-        if (member.guild.id === "430256496824287233") {
-        var w = ['مسار الصوره مثل ذا./img/12.png'];
-           let Image = Canvas.Image,
-               canvas = new Canvas(401, 202),
-               ctx = canvas.getContext('2d');
-           ctx.patternQuality = 'bilinear';
-           ctx.filter = 'bilinear';
-           ctx.antialias = 'subpixel';
-           ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
-           ctx.shadowOffsetY = 2;
-           ctx.shadowBlur = 2;
-           fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-               if (err) return console.log(err);
-               let BG = Canvas.Image;
-               let ground = new Image;
-               ground.src = Background;
-               ctx.drawImage(ground, 0, 0, 401, 202);
-   
-   })
+  let channel = member.guild.channels.find('name','chat');
+     if (!channel) return; 
+          let memberavatar = member.user.avatarURL
+        let embed = new Discord.RichEmbed()
+    .setThumbnail(memberavatar)
+       .setColor('BLUE')
+       .addField(':sunflower:  حياك الله منور السيرفر',`**[ ${member} ]**`,true)
+       .addField(':levitate: انت العضو رقم',`**[ ${member.guild.memberCount} ]**`,true)
+       channel.send(``)
+     channel.send({embed:embed});
+});
+
+client.on('guildMemberRemove', member => {
+      let channel = member.guild.channels.find('name', wlc');
+        if (!channel) return; 
+        let memberavatar = member.user.avatarURL
+      let embed = new Discord.RichEmbed()
+          .setColor('RED')
+          .setThumbnail(member.avatar)
+          .addField(':x: لقد خرج ',`**[ ${member} ]**`,true)
+          .addField(':man_dancing:  تبقي',`**[ ${member.guild.memberCount} ]**`,true)      
+          channel.send(``)
+        channel.send({embed:embed});
+      });
+
 
 
 // THIS  MUST  BE  THIS  WAY
