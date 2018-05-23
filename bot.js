@@ -439,6 +439,45 @@ client.on("message", message => {
 });
 
 
+client.on('guildMemberRemove', member => {
+      let channel = member.guild.channels.find('name', 'wlc');
+        if (!channel) return; 
+        let memberavatar = member.user.avatarURL
+      let embed = new Discord.RichEmbed()
+          .setColor('RED')
+          .setThumbnail(member.avatar)
+          .addField(':x: لقد خرج ',`**[ ${member} ]**`,true)
+          .addField(':man_dancing:  تبقي',`**[ ${member.guild.memberCount} ]**`,true)      
+          channel.send(``)
+        channel.send({embed:embed});
+      });
+      
+client.on('guildMemberRemove', member => {
+      let channel = member.guild.channels.find('name', 'wlc');
+        if (!channel) return; 
+        let memberavatar = member.user.avatarURL
+      let embed = new Discord.RichEmbed()
+          .setColor('RED')
+          .setThumbnail(member.avatar)
+          .addField(':x: لقد خرج ',`**[ ${member} ]**`,true)
+          .addField(':man_dancing:  تبقي',`**[ ${member.guild.memberCount} ]**`,true)      
+          channel.send(``)
+        channel.send({embed:embed});
+      });
+
+client.on('guildMemberAdd', member => {
+  let channel = member.guild.channels.find('name','chat');
+     if (!channel) return; 
+          let memberavatar = member.user.avatarURL
+        let embed = new Discord.RichEmbed()
+    .setThumbnail(memberavatar)
+       .setColor('BLUE')
+       .addField(':sunflower:  حياك الله منور السيرفر',`**[ ${member} ]**`,true)
+       .addField(':levitate: انت العضو رقم',`**[ ${member.guild.memberCount} ]**`,true)
+       channel.send(``)
+     channel.send({embed:embed});
+});
+
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
