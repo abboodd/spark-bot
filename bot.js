@@ -496,8 +496,7 @@ client.on('guildMemberAdd', member => {
                        if (err) return console.log(err);
                        ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
                            if (err) return console.log(err);
-(edited)
-//AVATAR�
+
                               let Avatar = Canvas.Image;
                               let ava = new Avatar;
                               ava.src = buf;
