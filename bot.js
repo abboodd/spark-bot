@@ -380,31 +380,30 @@ client.on('guildMemberAdd', member => {
       channel.sendEmbed(embed);
     });
 
-const devs = ['270978812962013185' , '' , '' , ''];
-const adminprefix = ".";
-client.on('message', message => {
-    var argresult = message.content.split(` `).slice(1).join(' ');
-      if (!devs.includes(message.author.id)) return;
+var fs = require('fs');
+var Canvas = require('canvas')
+var jimp = require('jimp')
+client.on('guildMemberAdd', member => {
       
-  if (message.content.startsWith(adminprefix + 'ply')) {
-    client.user.setGame(argresult);
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'wt')) {
-  client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'ls')) {
-  client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'st')) {
-    client.user.setGame(argresult, "https://www.twitch.tv/idk");
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-  }
-  });
-
-
+        if (member.guild.id === "430256496824287233") {
+        var w = ['مسار الصوره مثل ذا./img/12.png'];
+           let Image = Canvas.Image,
+               canvas = new Canvas(401, 202),
+               ctx = canvas.getContext('2d');
+           ctx.patternQuality = 'bilinear';
+           ctx.filter = 'bilinear';
+           ctx.antialias = 'subpixel';
+           ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+           ctx.shadowOffsetY = 2;
+           ctx.shadowBlur = 2;
+           fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
+               if (err) return console.log(err);
+               let BG = Canvas.Image;
+               let ground = new Image;
+               ground.src = Background;
+               ctx.drawImage(ground, 0, 0, 401, 202);
+   
+   })
 
 
 // THIS  MUST  BE  THIS  WAY
